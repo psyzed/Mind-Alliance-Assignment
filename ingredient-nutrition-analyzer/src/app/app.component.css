@@ -1,0 +1,29 @@
+h1 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+label {
+  padding-left: 12px;
+}
+
+.btn.btn-success {
+  margin-top: 5px;
+}
+
+.analyze {
+  margin: 30px auto;
+  padding-left: 12px;
+}
+
+.reset-btn {
+  margin-left: 5px;
+}
+
+.btn.btn-primary {
+  padding: 6px 25px 6px 25px;
+}
