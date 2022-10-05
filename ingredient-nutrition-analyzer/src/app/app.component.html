@@ -1,0 +1,83 @@
+<h1>Ingredient Nutrition Analyzer</h1>
+<div class="container">
+  <form
+    [formGroup]="ingredientForm"
+    (ngSubmit)="onSubmit(ingredientForm.value)"
+  >
+    <div class="row">
+      <div class="col-xs-12">
+        <div>
+          <label for="search">Enter Ingredients</label>
+        </div>
+        <div formArrayName="ingr">
+          <div
+            class="form-group"
+            *ngFor="let control of controls; let i = index"
+          >
+            <div class="col-xs-8">
+              <input class="form-control" type="text" [formControlName]="i" />
+            </div>
+            <button
+              class="btn btn-danger"
+              type="button"
+              (click)="onDelete(i)"
+              [disabled]="controls.length == 1"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="col-xs-8">
+          <button
+            class="btn btn-success"
+            type="button"
+            (click)="onAddIngredients()"
+            [disabled]="!ingredientForm.valid"
+          >
+            Add Ingredient
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="analyze">
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!ingredientForm.valid"
+          >
+            Analyze
+          </button>
+          <button
+            class="btn btn-danger reset-btn"
+            type="button"
+            (click)="onReset()"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row" *ngIf="data && data.totalNutrients">
+    <div class="col-xs-12">
+      <p class="total-fat" *ngIf="data.totalNutrients.FAT">
+        Total Fat: {{ data.totalNutrients.FAT.quantity }}
+      </p>
+      <p class="saturated" *ngIf="data.totalNutrients.FASAT">
+        Saturated Fat: {{ data.totalNutrients.FASAT.quantity }}
+      </p>
+      <p class="trans" *ngIf="data.totalNutrients.FAPU">
+        Trans Fats: {{ data.totalNutrients.FAPU.quantity }}
+      </p>
+      <p class="sodium" *ngIf="data.totalNutrients.NA">
+        Sodium: {{ data.totalNutrients.NA.quantity }}
+      </p>
+    </div>
+  </div>
+</div>
