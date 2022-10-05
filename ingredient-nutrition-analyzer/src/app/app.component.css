@@ -27,3 +27,7 @@ label {
 .btn.btn-primary {
   padding: 6px 25px 6px 25px;
 }
+
+p {
+  border: 3px solid black;
+}

@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
     this.data = null;
     this.ingredientForm.reset();
     let controllersCount = (<FormArray>this.ingredientForm.get('ingr')).length;
-    for (let i = 1; i < controllersCount; ++i)
+    for (let i = 0; i < controllersCount; ++i)
       (<FormArray>this.ingredientForm.get('ingr')).removeAt(i);
   }
 
