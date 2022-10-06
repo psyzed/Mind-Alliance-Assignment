@@ -2,7 +2,7 @@
 Ingredients Nutrition Analyzer
 
 1. Clone the application from the repository.
-2. Install node package manager (atleast version 6).
+2. Install node package manager (at least version 6).
 3. Run command npm install -g @angular/cli to install angular cli.
 4. Run  command npm install to install all project dependencies.
 5. Run command ng serve.
