@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NutritionService } from './nutrition.service';
-import * as intefaces from './analyzer-result.interface';
+import * as interfaces from './analyzer-result.interface';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
 
   title = 'ingredient-nutrition-analyzer';
   ingredientForm: FormGroup;
-  public data: intefaces.AnalyzerResult;
+  public data: interfaces.AnalyzerResult;
+  isLoading = false;
 
   ngOnInit() {
     this.ingredientForm = new FormGroup({
@@ -30,10 +31,12 @@ export class AppComponent implements OnInit {
     (<FormArray>this.ingredientForm.get('ingr')).removeAt(index);
   }
 
-  onSubmit(ingredientForm) {
+  onSubmit(ingredient: string[]) {
+    this.isLoading = true;
     this.nutritionService
-      .submitIngredients(ingredientForm)
-      .subscribe((responseData: intefaces.AnalyzerResult) => {
+      .submitIngredients(ingredient)
+      .subscribe((responseData: interfaces.AnalyzerResult) => {
+        this.isLoading = false;
         this.data = { ...responseData };
       });
   }

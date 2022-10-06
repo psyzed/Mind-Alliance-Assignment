@@ -64,20 +64,29 @@
       </div>
     </div>
   </form>
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading...</p>
+  </div>
   <div class="row" *ngIf="data && data.totalNutrients">
     <div class="col-xs-12">
-      <p class="total-fat" *ngIf="data.totalNutrients.FAT">
-        Total Fat: {{ data.totalNutrients.FAT.quantity }}
-      </p>
-      <p class="saturated" *ngIf="data.totalNutrients.FASAT">
-        Saturated Fat: {{ data.totalNutrients.FASAT.quantity }}
-      </p>
-      <p class="trans" *ngIf="data.totalNutrients.FAPU">
-        Trans Fats: {{ data.totalNutrients.FAPU.quantity }}
-      </p>
-      <p class="sodium" *ngIf="data.totalNutrients.NA">
-        Sodium: {{ data.totalNutrients.NA.quantity }}
-      </p>
+      <div class="list-container">
+        <ul class="total-fat">
+          <li class="total-fat" *ngIf="data.totalNutrients.FAT">
+            <strong>Total Fat</strong>:
+            {{ data.totalNutrients.FAT.quantity }} grams.
+          </li>
+          <li class="fats saturated" *ngIf="data.totalNutrients.FASAT">
+            Saturated Fat: {{ data.totalNutrients.FASAT.quantity }} grams.
+          </li>
+          <li class="fats trans" *ngIf="data.totalNutrients.FAPU">
+            Trans Fats: {{ data.totalNutrients.FAPU.quantity }} grams.
+          </li>
+          <li class="sodium" *ngIf="data.totalNutrients.NA">
+            <strong>Sodium</strong>:
+            {{ data.totalNutrients.NA.quantity }} miligrams.
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

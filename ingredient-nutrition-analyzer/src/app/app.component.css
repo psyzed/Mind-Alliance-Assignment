@@ -28,6 +28,26 @@ label {
   padding: 6px 25px 6px 25px;
 }
 
-p {
-  border: 3px solid black;
+.loading {
+  font-weight: bold;
+}
+
+.list-container {
+  width: 50%;
+  display: flex;
+}
+
+ul {
+  border: 3px solid gray;
+  padding: 30px 30px;
+  margin: 0 auto;
+}
+
+li {
+  list-style: square;
+}
+
+.fats {
+  list-style: circle;
+  margin-left: 10px;
 }
