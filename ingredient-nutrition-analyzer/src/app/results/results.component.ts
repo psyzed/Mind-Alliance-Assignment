@@ -10,14 +10,13 @@ import { NutritionService } from '../nutrition.service';
 })
 export class ResultsComponent implements OnInit, OnDestroy {
   data: AnalyzerResult;
-  isLoading = false;
   dataRecievedSub: Subscription;
 
   constructor(private nutritionService: NutritionService) {}
 
   ngOnInit(): void {
     this.dataRecievedSub = this.nutritionService.dataRecieved.subscribe(
-      (data) => {
+      (data: AnalyzerResult) => {
         this.data = data;
       }
     );
