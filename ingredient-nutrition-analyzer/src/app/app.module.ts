@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { IngredientInputComponent } from './ingredient-input/ingredient-input.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, IngredientInputComponent],
+  declarations: [AppComponent, HeaderComponent, IngredientInputComponent, ResultsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
