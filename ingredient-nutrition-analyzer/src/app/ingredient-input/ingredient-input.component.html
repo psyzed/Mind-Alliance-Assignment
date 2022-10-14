@@ -1,0 +1,68 @@
+<div class="row container">
+  <div class="col-xs-12">
+    <form
+      [formGroup]="ingredientForm"
+      (ngSubmit)="onSubmit(ingredientForm.value)"
+    >
+      <div class="row">
+        <div class="col-xs-12">
+          <div>
+            <label for="search">Enter Ingredients</label>
+          </div>
+          <div formArrayName="ingr">
+            <div
+              class="form-group"
+              *ngFor="let control of controls; let i = index"
+            >
+              <div class="col-xs-8">
+                <input class="form-control" type="text" [formControlName]="i" />
+              </div>
+              <button
+                class="btn btn-danger"
+                type="button"
+                (click)="onDeleteInput(i)"
+                [disabled]="controls.length == 1"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="col-xs-8">
+            <button
+              class="btn btn-success"
+              type="button"
+              (click)="onAddIngredientInput()"
+              [disabled]="!ingredientForm.valid"
+            >
+              Add Ingredient
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="analyze">
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              class="btn btn-primary"
+              type="submit"
+              [disabled]="!ingredientForm.valid"
+            >
+              Analyze
+            </button>
+            <button
+              class="btn btn-danger reset-btn"
+              type="button"
+              (click)="onResetForm()"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
