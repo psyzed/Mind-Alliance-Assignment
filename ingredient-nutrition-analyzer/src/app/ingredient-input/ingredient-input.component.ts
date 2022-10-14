@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NutritionService } from '../nutrition.service';
@@ -34,6 +33,7 @@ export class IngredientInputComponent implements OnInit {
 
   onResetForm() {
     this.ingredientForm.reset();
+    this.nutritionService.resetResults();
     let controllersCount = (<FormArray>this.ingredientForm.get('ingr')).length;
     for (let i = 0; i < controllersCount; ++i) {
       (<FormArray>this.ingredientForm.get('ingr')).removeAt(1);

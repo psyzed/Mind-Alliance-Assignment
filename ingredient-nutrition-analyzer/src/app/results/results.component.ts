@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AnalyzerResult } from '../analyzer-result.interface';
 import { NutritionService } from '../nutrition.service';
@@ -8,7 +8,7 @@ import { NutritionService } from '../nutrition.service';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css'],
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, OnDestroy {
   data: AnalyzerResult;
   isLoading = false;
   dataRecievedSub: Subscription;
@@ -21,5 +21,9 @@ export class ResultsComponent implements OnInit {
         this.data = data;
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.dataRecievedSub.unsubscribe();
   }
 }

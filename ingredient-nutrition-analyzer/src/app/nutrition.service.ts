@@ -26,4 +26,8 @@ export class NutritionService {
         console.log(responseData);
       });
   }
+
+  resetResults() {
+    this.dataRecieved.next(null);
+  }
 }
