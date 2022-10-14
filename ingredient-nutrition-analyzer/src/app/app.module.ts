@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { IngredientInputComponent } from './ingredient-input/ingredient-input.component';
 import { ResultsComponent } from './results/results.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, IngredientInputComponent, ResultsComponent],
+  declarations: [AppComponent, HeaderComponent, IngredientInputComponent, ResultsComponent, LoadingSpinnerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,5 +1,5 @@
-<div *ngIf="isLoading" class="loading">
-  <p>Loading...</p>
+<div class="spinner">
+  <app-loading-spinner></app-loading-spinner>
 </div>
 <div class="row" *ngIf="data && data.totalNutrients">
   <div class="col-xs-12">
